@@ -1,0 +1,43 @@
+{% extends 'painel.html.twig' %}
+
+{% block body %}
+    <h1>Barbeiros</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Nome</th>
+                        <td>{{ barbeiro.nome }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone</th>
+                        <td>{{ barbeiro.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Sexo</th>
+                        <td>{{ barbeiro.sexo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Datanascimento</th>
+                        <td>{% if barbeiro.dataNascimento %}{{ barbeiro.dataNascimento|date('Y-m-d') }}{% endif %}</td>
+                    </tr>
+                </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('barbeiro_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('barbeiro_edit', { 'id': barbeiro.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

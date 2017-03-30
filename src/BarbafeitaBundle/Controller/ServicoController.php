@@ -21,11 +21,17 @@ class ServicoController extends Controller
      * @Route("/", name="servico_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $ordenar = $request->get('ordenar');
+        $ordenar =  ($ordenar != '')? $ordenar : 'nome';
+        
         $em = $this->getDoctrine()->getManager();
 
-        $servicos = $em->getRepository('BarbafeitaBundle:Servico')->findAll();
+//        $servicos = $em->getRepository('BarbafeitaBundle:Servico')->findAll();
+        $servicos = $em->getRepository('BarbafeitaBundle:Servico')
+                ->findBy(array(),array($ordenar=>'ASC'))
+                ;
 
         return $this->render('BarbafeitaBundle:Servico:index.html.twig', array(
             'servicos' => $servicos,
