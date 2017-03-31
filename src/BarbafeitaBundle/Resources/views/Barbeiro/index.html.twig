@@ -16,10 +16,17 @@
         <tbody>
         {% for barbeiro in barbeiros %}
             <tr>
-                <td>{{ barbeiro.nome }}</td>
+                <td>{{ barbeiro.nome|upper }}</td>
                 <td>{{ barbeiro.telefone }}</td>
-                <td>{{ barbeiro.sexo }}</td>
-                <td>{% if barbeiro.dataNascimento %}{{ barbeiro.dataNascimento|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if barbeiro.sexo == 'M' %}
+                        Masculino
+                    {% elseif barbeiro.sexo == 'F' %}
+                        Feminino
+                    {% else %}
+                        Indefinido
+                    {% endif %}
+                </td>
+                <td>{% if barbeiro.dataNascimento %}{{ barbeiro.dataNascimento|date('d/m/Y') }}{% endif %}</td>
                 <td>
                     <a class="btn btn-default" href="{{ path('barbeiro_show', { 'id': barbeiro.id }) }}">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>

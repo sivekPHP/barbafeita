@@ -4,6 +4,7 @@ namespace BarbafeitaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BarbafeitaBundle\Entity\Servico;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,27 +21,32 @@ class Barbeiro
     
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="O nome é obrigatório!")
      */
     private $nome;
     
     /**
      * @ORM\ManyToOne(targetEntity="Servico")
      * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
+     * @Assert\NotBlank(message="O serviço é obrigatório!")
      */
     private $servico;
     
     /**
      * @ORM\Column(type="string", length=15, nullable=TRUE)
+     * @Assert\Regex(pattern="/\([0-9].\)[9]{0,1}[0-9]{4}-[0-9]{4}/", message="O telefone é inválido! Informe no formato (99)99999-9999.")
      */
     private $telefone;
     
     /**
      * @ORM\Column(type="string", length=1)
+     * @Assert\NotBlank(message="O sexo é obrigatório!")
      */
     private $sexo;
     
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThanOrEqual(value="1950-1-1", message="Data de nascimento está inválida! Informe algo maior que 01/01/1950.")
      */
     private $dataNascimento;
 

@@ -5,8 +5,12 @@
 
     <div class="row">
         <div class="col-md-8">
-            {{ form_start(form) }}
-                {{ form_widget(form) }}
+            {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+                {{ form_row(form.servico, {'label': 'Serviços'}) }}
+                {{ form_row(form.nome) }}
+                {{ form_row(form.sexo) }}
+                {{ form_row(form.dataNascimento) }}
+                {{ form_row(form.telefone) }}
                 <input type="submit" value="Salvar" class="btn btn-success pull-right" />
             {{ form_end(form) }}
         </div>
