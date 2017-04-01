@@ -39,7 +39,7 @@ class Barbeiro
     private $telefone;
     
     /**
-     * @ORM\Column(type="string", length=1)
+     * @ORM\Column(type="string", length=1, nullable=TRUE)
      * @Assert\NotBlank(message="O sexo é obrigatório!")
      */
     private $sexo;

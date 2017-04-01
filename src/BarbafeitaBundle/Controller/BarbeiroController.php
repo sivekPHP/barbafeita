@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Barbeiro controller.
@@ -20,6 +21,7 @@ class BarbeiroController extends Controller
      *
      * @Route("/", name="barbeiro_index")
      * @Method("GET")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function indexAction()
     {
