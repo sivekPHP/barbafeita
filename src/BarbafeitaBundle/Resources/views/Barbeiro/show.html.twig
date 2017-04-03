@@ -29,19 +29,12 @@
                         <td>{% if barbeiro.dataNascimento %}{{ barbeiro.dataNascimento|date('d/m/Y') }}{% endif %}</td>
                     </tr>
                 </tbody>
-    </table>
+            </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('barbeiro_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('barbeiro_edit', { 'id': barbeiro.id }) }}">Edit</a>
-        </li>
-        <li>
+            <a class="btn btn-success pull-right" href="{{ path('barbeiro_edit', { 'id': barbeiro.id }) }}">Editar</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Deletar" class="btn btn-danger pull-left">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
 {% endblock %}
