@@ -1,0 +1,71 @@
+<?php
+
+namespace BarbafeitaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use BarbafeitaBundle\Entity\Servico;
+use BarbafeitaBundle\Entity\Barbeiro;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="agendamento")
+ */
+
+class Agendamento
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Servico")
+     * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
+     */
+    private $servico;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Barbeiro")
+     * @ORM\JoinColumn(name="barbeiro_id", referencedColumnName="id")
+     */
+    private $barbeiro;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $horario;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $nome;
+    
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $telefone;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=TRUE)
+     */
+    private $email;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dataCadastro;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dataOperacao;
+
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $status;
+    
+    
+}

@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="barbeiro")
  */
-class Barbeiro
+class Barbeiro implements \JsonSerializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -50,6 +50,20 @@ class Barbeiro
      */
     private $dataNascimento;
 
+    public function __toString()
+    {
+        return $this->nome;
+    }
+    
+    public function jsonSerialize() 
+    {
+        return array(
+            'nome'=>$this->nome,
+            'id'=>$this->id
+        );
+    }
+
+    
     /**
      * Get id
      *
