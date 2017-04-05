@@ -62,7 +62,6 @@ class Barbeiro implements \JsonSerializable
             'id'=>$this->id
         );
     }
-
     
     /**
      * Get id
