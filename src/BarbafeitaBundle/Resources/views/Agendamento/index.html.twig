@@ -9,6 +9,8 @@
                 <th>Horário</th>
                 <th>Nome</th>
                 <th>Telefone</th>
+                <th>Serviço</th>
+                <th>Barbeiro</th>
                 <th>Email</th>
                 <th>Data de Cadastro</th>
                 <th>Data de Operação</th>
@@ -22,6 +24,8 @@
                 <td>{% if agendamento.horario %}{{ agendamento.horario|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ agendamento.nome }}</td>
                 <td>{{ agendamento.telefone }}</td>
+                <td>{{ agendamento.servico }}</td>
+                <td>{{ agendamento.barbeiro }}</td>
                 <td>{{ agendamento.email }}</td>
                 <td>{% if agendamento.dataCadastro %}{{ agendamento.dataCadastro|date('d-m-Y H:i:s') }}{% endif %}</td>
                 <td>{% if agendamento.dataOperacao %}{{ agendamento.dataOperacao|date('d-m-Y H:i:s') }}{% endif %}</td>
